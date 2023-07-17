@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import Topbar from './scenes/global/Topbar.server';
 import Sidebar from './scenes/global/Sidebar.server';
 
@@ -9,16 +8,16 @@ import HubbRoutes from './Routes';
 
 function App() {
   const [theme, colorMode] = useMode();
-  const [isSidebar, setIsSidebar] = useState(true);
+  // const [isSidebar, setIsSidebar] = useState(true);
 
   return (
     <ColorModeContext.Provider value={colorMode}>
       <ThemeProvider theme={theme}>
         <CssBaseline />
         <div className='app'>
-          <Sidebar isSidebar={isSidebar} />
+          <Sidebar isSidebar={true} />
           <main className='content'>
-            <Topbar setIsSidebar={setIsSidebar} />
+            <Topbar setIsSidebar={true} />
             <HubbRoutes />
           </main>
         </div>
