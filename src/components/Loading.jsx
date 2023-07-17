@@ -1,5 +1,4 @@
 import React from 'react';
-import { MouseEventHandler } from 'react';
 
 /**
  * Primary UI component for user interaction
