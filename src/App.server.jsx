@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import Topbar from './scenes/global/Topbar';
-import Sidebar from './scenes/global/Sidebar';
+import Topbar from './scenes/global/Topbar.server';
+import Sidebar from './scenes/global/Sidebar.server';
 
 import React from 'react';
 import { CssBaseline, ThemeProvider } from '@mui/material';

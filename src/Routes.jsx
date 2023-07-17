@@ -12,7 +12,7 @@ import Loading from './components/Loading';
 // const Bar = lazyWithRetry(() => import('./scenes/bar'));
 // const Pie = lazyWithRetry(() => import('./scenes/pie'));
 // const Line = lazyWithRetry(() => import('./scenes/line'));
-const Dashboard = lazy(() => import('./scenes/dashboard'));
+const Dashboard = lazy(() => import('./scenes/dashboard/index.server'));
 const FAQ = lazy(() => import('./scenes/faq'));
 const Geography = lazy(() => import('./scenes/geography'));
 const Invoices = lazy(() => import('./scenes/invoices'));
@@ -25,26 +25,21 @@ const Line = lazy(() => import('./scenes/line'));
 const Form = lazy(() => import('./scenes/form'));
 
 const HubbRoutes = () => {
-  console.log('navid inja1');
-
   return (
     <Suspense
-      fallback={() => {
-        console.log('navid inja2');
-        return (
-          <div
-            style={{
-              width: '100vw',
-              height: '100vh',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-            }}
-          >
-            <Loading />
-          </div>
-        );
-      }}
+      fallback={
+        <div
+          style={{
+            width: '100vw',
+            height: '100vh',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+          }}
+        >
+          <Loading />
+        </div>
+      }
     >
       <Routes>
         {/* ///////// */}
