@@ -26,36 +26,36 @@ const Form = lazy(() => import('./scenes/form'));
 
 const HubbRoutes = () => {
   return (
-    // <Suspense
-    //   fallback={
-    //     <div
-    //       style={{
-    //         width: '100vw',
-    //         height: '100vh',
-    //         display: 'flex',
-    //         alignItems: 'center',
-    //         justifyContent: 'center',
-    //       }}
-    //     >
-    //       <Loading />
-    //     </div>
-    //   }
-    // >
-    <Routes>
-      {/* ///////// */}
-      <Route path='/' element={<Dashboard />} />
-      <Route path='/team' element={<Team />} />
-      <Route path='/contacts' element={<Contacts />} />
-      <Route path='/invoices' element={<Invoices />} />
-      <Route path='/form' element={<Form />} />
-      <Route path='/bar' element={<Bar />} />
-      <Route path='/pie' element={<Pie />} />
-      <Route path='/line' element={<Line />} />
-      <Route path='/faq' element={<FAQ />} />
-      <Route path='/calendar' element={<Calendar />} />
-      <Route path='/geography' element={<Geography />} />
-    </Routes>
-    // </Suspense>
+    <Suspense
+      fallback={
+        <div
+          style={{
+            width: '100vw',
+            height: '100vh',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+          }}
+        >
+          <Loading />
+        </div>
+      }
+    >
+      <Routes>
+        {/* ///////// */}
+        <Route path='/' element={<Dashboard />} />
+        <Route path='/team' element={<Team />} />
+        <Route path='/contacts' element={<Contacts />} />
+        <Route path='/invoices' element={<Invoices />} />
+        <Route path='/form' element={<Form />} />
+        <Route path='/bar' element={<Bar />} />
+        <Route path='/pie' element={<Pie />} />
+        <Route path='/line' element={<Line />} />
+        <Route path='/faq' element={<FAQ />} />
+        <Route path='/calendar' element={<Calendar />} />
+        <Route path='/geography' element={<Geography />} />
+      </Routes>
+    </Suspense>
   );
 };
 export default HubbRoutes;
