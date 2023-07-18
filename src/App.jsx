@@ -1,11 +1,11 @@
 import { useState } from 'react';
-import Topbar from './scenes/global/Topbar.server';
-import Sidebar from './scenes/global/Sidebar.server';
+import Topbar from './scenes/global/Topbar';
+import Sidebar from './scenes/global/Sidebar';
 
 import React from 'react';
 import { CssBaseline, ThemeProvider } from '@mui/material';
 import { ColorModeContext, useMode } from './theme';
-import HubbRoutes from './Routes.server';
+import HubbRoutes from './Routes';
 
 function App() {
   const [theme, colorMode] = useMode();

@@ -12,7 +12,7 @@ import Loading from './components/Loading';
 // const Bar = lazyWithRetry(() => import('./scenes/bar'));
 // const Pie = lazyWithRetry(() => import('./scenes/pie'));
 // const Line = lazyWithRetry(() => import('./scenes/line'));
-const Dashboard = lazy(() => import('./scenes/dashboard/index.server'));
+const Dashboard = lazy(() => import('./scenes/dashboard'));
 const FAQ = lazy(() => import('./scenes/faq'));
 const Geography = lazy(() => import('./scenes/geography'));
 const Invoices = lazy(() => import('./scenes/invoices'));
