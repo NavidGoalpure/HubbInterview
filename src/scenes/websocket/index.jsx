@@ -7,20 +7,34 @@ const Websocket = () => {
   //Public API that will echo messages sent to it back to the client
   const socketUrl = 'wss://ws.eodhistoricaldata.com/ws/crypto?api_token=demo';
 
-  const [messageHistory, setMessageHistory] = useState([]);
+  const { sendJsonMessage, lastJsonMessage, readyState } =
+    useWebSocket(socketUrl);
 
-  const { sendMessage, lastMessage, readyState } = useWebSocket(socketUrl);
+  const handleDisconnectWS = useCallback(
+    () =>
+      sendJsonMessage({ action: 'unsubscribe', symbols: 'BTC-USD,ETH-USD' }),
+    // eslint-disable-next-line no-use-before-define
+    [sendJsonMessage]
+  );
 
   useEffect(() => {
-    if (lastMessage !== null) {
-      setMessageHistory((prev) => prev.concat(lastMessage));
-    }
-  }, [lastMessage, setMessageHistory]);
+    return () => {
+      // Make sure to close the WebSocket connection when the component is unmounted
+      // This is important to prevent memory leaks and unnecessary connections
+      handleDisconnectWS();
+    };
+  }, [handleDisconnectWS]);
 
   const handleClickSendMessage = useCallback(
-    () => sendMessage({ action: 'subscribe', symbols: 'BTC-USD' }),
-    [sendMessage]
+    () => sendJsonMessage({ action: 'subscribe', symbols: 'BTC-USD,ETH-USD' }),
+    [sendJsonMessage]
   );
+
+  useWebSocket(socketUrl, {
+    onOpen: () => {
+      console.log('WebSocket connection established.');
+    },
+  });
 
   const connectionStatus = {
     [ReadyState.CONNECTING]: 'Connecting',
@@ -29,11 +43,11 @@ const Websocket = () => {
     [ReadyState.CLOSED]: 'Closed',
     [ReadyState.UNINSTANTIATED]: 'Uninstantiated',
   }[readyState];
-
+  console.log('navid msg=', lastJsonMessage);
+  console.log('navid =============');
   return (
     <Box m='20px'>
       <Header title='INVOICES' subtitle='List of Prices]' />
-
       <button
         onClick={handleClickSendMessage}
         disabled={readyState !== ReadyState.OPEN}
@@ -43,18 +57,10 @@ const Websocket = () => {
       <br />
       <span>The WebSocket is currently {connectionStatus}</span>
       <br />
-
-      {lastMessage ? <span>Last message: {lastMessage.data}</span> : null}
+      {lastJsonMessage ? (
+        <span>Last message: {lastJsonMessage.data}</span>
+      ) : null}
       <br />
-
-      <ul>
-        {messageHistory.map((message, idx) => (
-          <>
-            <span key={idx}>{message ? message.data : null}</span>
-            <br />
-          </>
-        ))}
-      </ul>
     </Box>
   );
 };
