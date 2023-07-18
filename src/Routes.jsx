@@ -5,7 +5,7 @@ import Loading from './components/Loading';
 const Dashboard = lazy(() => import('./scenes/dashboard'));
 const FAQ = lazy(() => import('./scenes/faq'));
 const Geography = lazy(() => import('./scenes/geography'));
-const Invoices = lazy(() => import('./scenes/invoices'));
+const Websocket = lazy(() => import('./scenes/websocket'));
 const Team = lazy(() => import('./scenes/team'));
 const Contacts = lazy(() => import('./scenes/contacts'));
 const Calendar = lazy(() => import('./scenes/calendar/calendar'));
@@ -36,7 +36,7 @@ const HubbRoutes = () => {
         <Route path='/' element={<Dashboard />} />
         <Route path='/team' element={<Team />} />
         <Route path='/contacts' element={<Contacts />} />
-        <Route path='/invoices' element={<Invoices />} />
+        <Route path='/websocket' element={<Websocket />} />
         <Route path='/form' element={<Form />} />
         <Route path='/bar' element={<Bar />} />
         <Route path='/pie' element={<Pie />} />
