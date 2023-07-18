@@ -2,16 +2,6 @@ import React, { Suspense, lazy } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Loading from './components/Loading';
 
-// const Dashboard = lazyWithRetry(() => import('./scenes/dashboard'));
-// const FAQ = lazyWithRetry(() => import('./scenes/faq'));
-// const Geography = lazyWithRetry(() => import('./scenes/geography'));
-// const Invoices = lazyWithRetry(() => import('./scenes/invoices'));
-// const Team = lazyWithRetry(() => import('./scenes/team'));
-// const Contacts = lazyWithRetry(() => import('./scenes/contacts'));
-// const Calendar = lazyWithRetry(() => import('./scenes/calendar/calendar'));
-// const Bar = lazyWithRetry(() => import('./scenes/bar'));
-// const Pie = lazyWithRetry(() => import('./scenes/pie'));
-// const Line = lazyWithRetry(() => import('./scenes/line'));
 const Dashboard = lazy(() => import('./scenes/dashboard'));
 const FAQ = lazy(() => import('./scenes/faq'));
 const Geography = lazy(() => import('./scenes/geography'));

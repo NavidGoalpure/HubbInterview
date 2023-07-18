@@ -199,7 +199,7 @@ const Dashboard = () => {
         </Box>
 
         {/* ROW 3 */}
-        <Box
+        {/* <Box
           gridColumn='span 4'
           gridRow='span 2'
           backgroundColor={colors.primary[400]}
@@ -224,8 +224,8 @@ const Dashboard = () => {
             </Typography>
             <Typography>Includes extra misc expenditures and costs</Typography>
           </Box>
-        </Box>
-        <Box
+        </Box> */}
+        {/* <Box
           gridColumn='span 4'
           gridRow='span 2'
           backgroundColor={colors.primary[400]}
@@ -240,8 +240,8 @@ const Dashboard = () => {
           <Box height='250px' mt='-20px'>
             <BarChart isDashboard={true} />
           </Box>
-        </Box>
-        <Box
+        </Box> */}
+        {/* <Box
           gridColumn='span 4'
           gridRow='span 2'
           backgroundColor={colors.primary[400]}
@@ -257,7 +257,7 @@ const Dashboard = () => {
           <Box height='200px'>
             <GeographyChart isDashboard={true} />
           </Box>
-        </Box>
+        </Box> */}
       </Box>
     </Box>
   );
